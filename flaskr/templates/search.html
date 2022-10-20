@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+        <nav class="panel">
+            <p class="panel-heading">
+              Movies
+            </p>
+            <div class="panel-block">
+              <p class="control has-icons-left">
+                <input class="input" type="text" placeholder="Search" name="q" hx-trigger="keyup changed delay:500ms" hx-get="/search_movies" hx-target="#results">
+                <span class="icon is-left">
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+              </p>
+            </div>
+            <div id="results">
+                
+            </div>
+          </nav>
+    </div>
+  </section>
+  <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+  <script src="{{ url_for('static', filename='js/movies.js') }}"></script>
+  </body>
+</html>

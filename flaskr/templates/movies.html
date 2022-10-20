@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Submit</th>
+  </tr>
+{% for movie in movies %}
+  <tr>
+    <td>{{ movie.title }}</td>
+    <td><button type="submit" onclick="add_to('{{ movie|safe }}');">Vote!</button></td>
+  </tr>
+{% endfor %}
+</table>
