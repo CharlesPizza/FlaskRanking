@@ -6,7 +6,7 @@
 {% for movie in movies %}
   <tr>
     <td>{{ movie.title }}</td>
-    <td><button type="submit" onclick="add_to('{{ movie|safe }}');">Vote!</button></td>
+    <td><button type="submit" id="movie" onclick="add_to('{{ movie.title|safe }}');">Vote!</button></td>
   </tr>
 {% endfor %}
 </table>

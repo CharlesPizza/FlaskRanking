@@ -11,15 +11,22 @@ bp = Blueprint('moviequeue', __name__)
 def index():
     db = get_db()
     movies = db.execute(
-        'SELECT p.movie_id, votes, title'
-        ' FROM movie p'
-        ' ORDER BY votes DESC'
+        'SELECT movie_id, title, votes'
+        ' FROM queue'
+        ' ORDER BY votes DESC, title'
     ).fetchall()
     return render_template('index.html', movies=movies)
 
 @bp.route('/search', methods=('GET', 'POST'))
 @login_required
 def search():
+    if request.method == 'POST':
+        print('POST ENDPOINT ERROR')
+        db.execute(
+            'INSERT INTO movie (movie_id, votes, title)'
+            ' VALUES (%s,%s, %s)', ('''movie_id, votes, title''')
+            )
+        db.commit()
     return render_template('search.html')
 
 @bp.get('/search_movies')

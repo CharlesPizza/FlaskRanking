@@ -36,4 +36,6 @@ def create_app(test_config=None):
     from . import moviequeue
     app.register_blueprint(moviequeue.bp)
     app.add_url_rule('/', endpoint='index')
+    
+    
     return app
