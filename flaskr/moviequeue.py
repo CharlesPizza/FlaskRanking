@@ -7,8 +7,12 @@ from flaskr.auth import login_required
 from flaskr.db import get_db
 
 bp = Blueprint('moviequeue', __name__)
-@bp.route('/')
-def index():
+
+@bp.route('/', methods=('GET', 'POST'))
+def index(movie=[None]):
+        # db.execute(
+        #     'INSERT INTO queue (movie_id, title, votes)'
+        #     ' VALUES (%s, %s, %s)', (movie)
     db = get_db()
     movies = db.execute(
         'SELECT movie_id, title, votes'

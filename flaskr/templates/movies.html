@@ -3,10 +3,12 @@
     <th>Title</th>
     <th>Submit</th>
   </tr>
+
 {% for movie in movies %}
   <tr>
     <td>{{ movie.title }}</td>
-    <td><button type="submit" id="movie" onclick="add_to('{{ movie.title|safe }}');">Vote!</button></td>
+    <td><a href="{{ url_for('moviequeue.index', movie=[movie.movie_id, movie.title, movie.name]) }}" button type="submit" id="movie" onclick="('{{ movie.title|safe }}');">Vote!</button></a></td>
+
   </tr>
 {% endfor %}
 </table>

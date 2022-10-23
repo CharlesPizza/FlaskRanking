@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search</title>
-
+    <a class="action" href="{{ url_for('moviequeue.index') }}">Queued</a>
   </head>
   <body>
   <section class="section">
@@ -13,6 +13,7 @@
             <p class="panel-heading">
               Movies
             </p>
+
             <div class="panel-block">
               <p class="control has-icons-left">
                 <input class="input" type="text" placeholder="Search" name="q" hx-trigger="keyup changed delay:500ms" hx-get="/search_movies" hx-target="#results">
@@ -29,7 +30,6 @@
     </div>
     <div class="queueContainer">
       <ul id='ul-el'>test</ul>
-      <button type="submit" onclick="submit();">Submit</button>
     </div>
   </section>
 
