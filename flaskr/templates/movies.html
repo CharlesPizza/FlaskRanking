@@ -7,8 +7,11 @@
 {% for movie in movies %}
   <tr>
     <td>{{ movie.title }}</td>
-    <td><a href="{{ url_for('moviequeue.index', movie=[movie.movie_id, movie.title, movie.name]) }}" button type="submit" id="movie" onclick="('{{ movie.title|safe }}');">Vote!</button></a></td>
-
+    <td>
+      <form action="/" method="POST">
+        <button name="input" formaction="/" type="submit" id="movie" value='{{ [movie.movie_id, movie.title, movie.votes] }}' onclick="('{{ movie.title|safe }}');">Vote!</button>
+      </form>
+    </td>
   </tr>
 {% endfor %}
 </table>

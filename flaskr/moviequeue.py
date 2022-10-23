@@ -9,11 +9,19 @@ from flaskr.db import get_db
 bp = Blueprint('moviequeue', __name__)
 
 @bp.route('/', methods=('GET', 'POST'))
-def index(movie=[None]):
-        # db.execute(
-        #     'INSERT INTO queue (movie_id, title, votes)'
-        #     ' VALUES (%s, %s, %s)', (movie)
+def index():
     db = get_db()
+    if request.method == 'POST':
+        #Switch over to JS after upvote features inplace
+        add_movie = request.form['input']
+        add_movie = add_movie.replace('[', '').replace(']','')
+        add_movies = add_movie.split(',')
+
+        db.execute('INSERT OR IGNORE INTO queue (movie_id, title, votes)'
+            ' VALUES (?, ?, ?)', (int(add_movies[0]), add_movies[1], int(add_movies[2])),
+            )
+        db.commit()
+
     movies = db.execute(
         'SELECT movie_id, title, votes'
         ' FROM queue'
