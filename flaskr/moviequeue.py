@@ -17,16 +17,16 @@ def index():
         add_movie = add_movie.replace('[', '').replace(']','')
         add_movies = add_movie.split(',')
 
-        db.execute('INSERT OR IGNORE INTO queue (movie_id, title, votes)'
-            ' VALUES (?, ?, ?)', (int(add_movies[0]), add_movies[1], int(add_movies[2])),
+        db.execute('INSERT OR IGNORE INTO queue (movie_id, title)'
+            ' VALUES (?, ?)', (int(add_movies[0]), add_movies[1]),
             )
         db.commit()
 
-    movies = db.execute(
-        'SELECT movie_id, title, votes'
-        ' FROM queue'
-        ' ORDER BY votes DESC, title'
-    ).fetchall()
+    movies = db.execute('SELECT queue.movie_id, queue.title, COUNT(votes.user_id) as count'
+        ' FROM votes CROSS JOIN queue ON votes.movie_id = queue.movie_id'
+        ' GROUP BY votes.movie_id;'
+        ).fetchall()
+
     return render_template('index.html', movies=movies)
 
 @bp.route('/search', methods=('GET', 'POST'))

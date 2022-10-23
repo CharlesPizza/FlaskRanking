@@ -8,10 +8,16 @@ CREATE TABLE user (
   password TEXT NOT NULL
 );
 
-CREATE TABLE movie (
+CREATE TABLE queue (
   movie_id INTEGER PRIMARY KEY,
-  votes INTEGER NOT NULL,
-  title TEXT NOT NULL
+  title TEXT NOT NULL,
+);
+
+CREATE TABLE votes (
+  movie_id int NOT NULL,
+  user_id int,
+  FOREIGN KEY (movie_id) REFERENCES queue(movie_id),
+  FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 CREATE TABLE all_movies (
