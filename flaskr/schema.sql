@@ -16,8 +16,8 @@ CREATE TABLE queue (
 CREATE TABLE votes (
   movie_id int NOT NULL,
   user_id int,
-  FOREIGN KEY (movie_id) REFERENCES queue(movie_id),
-  FOREIGN KEY (user_id) REFERENCES user(id)
+  FOREIGN KEY (movie_id) REFERENCES queue(movie_id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE all_movies (
