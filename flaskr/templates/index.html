@@ -13,12 +13,15 @@
       <th>ID</th>
       <th>Title</th>
       <th>Votes</th>
+      <th></th>
     </tr>
   {% for movie in movies %}
     <tr>
       <td>{{ movie.movie_id }}</td>
       <td>{{ movie.title }}</td>
       <td align="center">{{ movie.count }}</td>
+      <td><form class="upvote" action="/vote" method="POST"><button type="submit" name="vote" value="{{ movie.movie_id }}">Upvote</button></form></td>
+
     </tr>
   {% endfor %}
   </table>
