@@ -49,9 +49,6 @@ def vote():
         else:
             db.execute('DELETE FROM votes WHERE movie_id = ? AND user_id = ?', (int(request.form['vote']), int(user_id)))
         db.commit()
-
-        print(session['user_id'])
-        print(request.form['vote'])
     return redirect('/')
 
 @bp.route('/search', methods=('GET', 'POST'))
