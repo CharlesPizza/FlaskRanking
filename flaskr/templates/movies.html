@@ -2,14 +2,23 @@
   <tr>
     <th>Title</th>
     <th>Submit</th>
+    <th>Submit2</th>
   </tr>
 
 {% for movie in movies %}
-  <tr>
+  <tr class="row-color">
     <td>{{ movie.title }}</td>
+      <td>
+        <form hx-post="/" hx-target="this" hx-trigger="submit">
+          <button name="hx" formaction="/edit" type="submit" id="movie" value='{{ [movie.movie_id, movie.title, movie.votes] }}' hx-include="closest tr">Vote!</button>
+        </form>
+    </td>
+    
     <td>
-      <form action="/" method="POST">
-        <button name="input" formaction="/" type="submit" id="movie" value='{{ [movie.movie_id, movie.title, movie.votes] }}' onclick="('{{ movie.title|safe }}');">Vote!</button>
+      <form hx-post="/edit" hx-target="this" hx-trigger="click submit">
+        <button name="hx" type="submit" hx-include="closest tr">
+          Tester
+        </button>
       </form>
     </td>
   </tr>

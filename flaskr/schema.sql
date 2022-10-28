@@ -26,8 +26,3 @@ CREATE TABLE all_movies (
   votes INTEGER NOT NULL,
   rating INTEGER NOT NULL
 );
-
--- CREATE TABLE user (
--- id INTEGER PRIMARY KEY AUTOINCREMENT,
--- username TEXT UNIQUE COLLATE NOCASE,
--- password TEXT NOT NULL);
