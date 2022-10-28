@@ -10,10 +10,10 @@
     <td>{{ movie.title }}</td>
       <td>
         <form hx-post="/" hx-target="this" hx-trigger="submit">
-          <button name="hx" formaction="/edit" type="submit" id="movie" value='{{ [movie.movie_id, movie.title, movie.votes] }}' hx-include="closest tr">Vote!</button>
+          <button name="hx" hx-get="/edit" formaction="/edit" type="submit" id="movie" value='{{ [movie.movie_id, movie.title, movie.votes] }}' >Vote!</button>
         </form>
     </td>
-    
+
     <td>
       <form hx-post="/edit" hx-target="this" hx-trigger="click submit">
         <button name="hx" type="submit" hx-include="closest tr">

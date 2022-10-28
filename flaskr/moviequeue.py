@@ -68,6 +68,8 @@ def search_movies():
     movies = []
     db = get_db()
     q = request.args.get('q')
+    print(q)
+    print(request.args)
     if q:
         movies = []
         r = db.execute(
