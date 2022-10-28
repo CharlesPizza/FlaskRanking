@@ -1,3 +1,8 @@
+.navMenu {
+    background: darkorange;
+    display: flex;
+}
+
 body {
     margin: 0;
     background: rgb(2,0,36);

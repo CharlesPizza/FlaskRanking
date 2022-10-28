@@ -13,7 +13,7 @@ def index():
     if request.method == 'POST':
         #Switch over to JS after upvote features inplace
         add_movie = request.form['hx']
-        add_movie = add_movie.replace('[', '').replace(']','')
+        add_movie = add_movie.replace('[', '').replace(']','').replace('\"','').replace("\'", '')
         add_movies = add_movie.split(',')
         db.execute('INSERT OR IGNORE INTO queue (movie_id, title)'
             ' VALUES (?, ?)', (int(add_movies[0]), add_movies[1]),
@@ -22,12 +22,11 @@ def index():
             ' VALUES ((SELECT movie_id FROM queue WHERE movie_id = ?))', (int(add_movies[0]),),
             )
         db.commit()
-        return "Submitted!"
+        return('sent!')
     movies = db.execute('SELECT queue.movie_id, queue.title, COUNT(votes.user_id) as count'
         ' FROM votes CROSS JOIN queue ON votes.movie_id = queue.movie_id'
         ' GROUP BY votes.movie_id ORDER BY count DESC;'
         ).fetchall()
-
     return render_template('index.html', movies=movies)
 
 
@@ -58,14 +57,11 @@ def search_movies():
     movies = []
     db = get_db()
     q = request.args.get('q')
-    print(q)
-    print(request.args)
     if q:
         movies = []
         r = db.execute(
             'SELECT * FROM all_movies WHERE title LIKE ?'
-            ' ORDER BY title DESC', (''.join(['%',q,'%']),
-                )
+            ' ORDER BY title', (f'{q}%',)
         ).fetchall()
         for movie in r:
             if q.lower() in movie['title'].lower():
@@ -82,3 +78,8 @@ def edit_button():
     print(request.args)
     print(request.args.get('hx'))
     return ('Sent!')
+
+
+@bp.route('/delete')
+def delete():
+    return('deleted')
