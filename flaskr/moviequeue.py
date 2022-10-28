@@ -35,8 +35,6 @@ def index():
 @login_required
 def vote():
     db = get_db()
-    if request.method == 'GET':
-        print('OOPS')
     if request.method == 'POST':
         user_id = session['user_id']
         r = db.execute('SELECT * FROM votes WHERE (movie_id, user_id) = (?, ?)', (int(request.form['vote']), int(user_id))).fetchone()
@@ -53,15 +51,7 @@ def vote():
 @bp.route('/search', methods=('GET', 'POST'))
 @login_required
 def search():
-    # if request.method == 'POST':
-    #     print('POST ENDPOINT ERROR')
-    #     db.execute(
-    #         'INSERT INTO movie (movie_id, votes, title)'
-    #         ' VALUES (%s,%s, %s)', ('''movie_id, votes, title''')
-    #         )
-    #     db.commit()
     return render_template('search.html')
-
 
 @bp.get('/search_movies')
 def search_movies():
@@ -85,10 +75,10 @@ def search_movies():
     return ''
 
 
-
 @bp.route('/edit', methods=('GET', 'POST'))
 def edit_button():
     print(request.form)
     print('==============')
     print(request.args)
+    print(request.args.get('hx'))
     return ('Sent!')

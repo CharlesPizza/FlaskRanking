@@ -1,12 +1,12 @@
 <table>
-  <tr>
+  <tr class='table-header'>
     <th>Title</th>
     <th>Submit</th>
     <th>Submit2</th>
   </tr>
 
 {% for movie in movies %}
-  <tr class="row-color">
+  <tr>
     <td>{{ movie.title }}</td>
       <td>
         <form hx-post="/" hx-target="this" hx-trigger="submit">
@@ -15,7 +15,7 @@
     </td>
 
     <td>
-      <form hx-post="/edit" hx-target="this" hx-trigger="click submit">
+      <form hx-get="/edit" hx-target="this" hx-trigger="click submit">
         <button name="hx" type="submit" hx-include="closest tr">
           Tester
         </button>
