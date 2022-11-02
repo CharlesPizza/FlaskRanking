@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}"/>
     <title>Search</title>
+
+  </head>
+  <header>
     <nav class="navMenu">
       <a class="action" href="{{ url_for('moviequeue.index') }}">Back to Queue</a>
+      <a href="{{ url_for('auth.logout') }}">Log Out</a>
     </nav>
-  </head>
+  </header>
   <body>
   <section class="section">
     <div class="container">
