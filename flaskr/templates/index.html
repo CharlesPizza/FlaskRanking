@@ -1,26 +1,28 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Movie Queue{% endblock %}</h1>
+  <h2>{% block title %}Movie Queue{% endblock %}</h1>
   {% if g.user %}
     <a class="action" href="{{ url_for('moviequeue.search') }}">Search</a>
   {% endif %}
 {% endblock %}
 
 {% block content %}
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Votes</th>
-      <th></th>
-    </tr>
-  {% for movie in movies %}
-    <tr>
-      <td>{{ movie.title }}</td>
-      <td align="center">{{ movie.count }}</td>
-      <td><form class="upvote" action="/vote" method="POST"><button type="submit" name="vote" value="{{ movie.movie_id }}">Upvote</button></form></td>
+  <div class="mainSection">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Votes</th>
+        <th></th>
+      </tr>
+    {% for movie in movies %}
+      <tr>
+        <td class="titlecell">{{ movie.title }}</td>
+        <td align="center">{{ movie.count }}</td>
+        <td><form class="upvote" action="/vote" method="POST"><button type="submit" name="vote" value="{{ movie.movie_id }}">Upvote</button></form></td>
 
-    </tr>
-  {% endfor %}
-  </table>
+      </tr>
+    {% endfor %}
+    </table>
+  </div>
 {% endblock %}

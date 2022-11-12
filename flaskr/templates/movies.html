@@ -2,7 +2,7 @@
   <tr class='table-header'>
     <th>Title</th>
     <th>Submit</th>
-    <th>Submit2</th>
+    <!-- <th>Submit2</th> -->
   </tr>
 
 {% for movie in movies %}
@@ -14,13 +14,13 @@
         </form>
     </td>
 
-    <td>
+<!--     <td>
       <form hx-get="/edit" hx-target="this" hx-trigger="click submit">
         <button name="hx" type="submit" hx-include="closest tr">
           Tester
         </button>
       </form>
-    </td>
+    </td> -->
   </tr>
 {% endfor %}
 </table>
