@@ -10,7 +10,7 @@ CREATE TABLE user (
 
 CREATE TABLE queue (
   movie_id INTEGER PRIMARY KEY,
-  title TEXT NOT NULL,
+  title TEXT NOT NULL
 );
 
 CREATE TABLE votes (
