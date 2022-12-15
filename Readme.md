@@ -21,3 +21,7 @@ the designated rate of 250ms after keyup. Results are displayed in a table forma
 with a button to submit the movie to the MovieQueue table, then making it available
 for voting on /index
 
+![Alt text](Images/htmxsearch.png "HTMX Search")
+![Alt text](Images/moviequerybackend.png "movie search backend")
+![Alt text](Images/sqlite3%20table.png "SQL Schema")
+![Alt text](Images/upvotesqlite3python.png "Upvote Backend")
