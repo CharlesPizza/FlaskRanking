@@ -12,6 +12,9 @@ in discord. The project features
 ## /Index/
 The index displays the movies currently queued. Logged in users can vote to add
 their vote, or vote a second time to remove it.
+![Alt text](Images/upvotesqlite3python.png "Upvote Backend")
+A user votes 
+
 ![Alt text](Images/Flask%20Movie%20Queue%20Page.png "Title")
 
 
@@ -24,4 +27,3 @@ for voting on /index
 ![Alt text](Images/htmxsearch.png "HTMX Search")
 ![Alt text](Images/moviequerybackend.png "movie search backend")
 ![Alt text](Images/sqlite3%20table.png "SQL Schema")
-![Alt text](Images/upvotesqlite3python.png "Upvote Backend")
