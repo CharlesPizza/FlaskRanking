@@ -6,10 +6,9 @@ html {
   background-attachment: fixed;}
 body {
   margin: 0 auto; height: 100%;
-  background: linear-gradient(45deg, rgba(2,0,36,1) 0%,
-    rgba(23,74,200,1) 47%, rgba(222,225,231,1) 100%);
+  background: rgba(2,48,71,1);
 }
-.content {max-width: 960px; margin: 0 auto; height: 100%; background: white;}
+.content {max-width: 960px; margin: 0 auto; height: 100%; background: rgba(33,158,188,1);}
 .banner {margin: 0 auto;}
 
 header {
@@ -23,14 +22,14 @@ a { color: #377ba8; }
 
 hr { border: none; border-top: 1px solid lightgray; }
 
-nav { background: #1F1F1F; display: flex; align-items: center; padding: 0 0.5rem; }
+nav { background: rgba(142,202,230,1); display: flex; align-items: center; padding: 0 0.5rem; }
 
 
 
 nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
 
 nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
-.mainSection { padding: 0 1rem 1rem; background: lightgray;}
+.mainSection { padding: 0 1rem 1rem; background: rgba(33,158,188,1)}
 
 .content > header { border-bottom: 1px solid lightgray; display: block; align-items: flex-end; }
 .content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; }
@@ -55,15 +54,12 @@ tbody {
   width: 100%;
 }
 th, tr{
-  background-color: rgba(102, 102, 102, .8);
+  background-color: rgba(251, 133, 0, .8);
   width: 100%;
-  box-shadow: 0px 2px 2px black;
-  -moz-box-shadow: 0px 2px 2px black;
-  -webkit-box-shadow: 0px 2px 2px black;
 }
 
 tr:nth-child(even){
-  background-color: rgba(242, 170, 170,.8);
+  background-color: rgba(255,183,3,1);
 }
 
 th {
@@ -73,7 +69,7 @@ th {
   padding-left: 1em;
 }
 tr:hover{
-  background: lightskyblue;
+  background: rgba(142,202,230,1);
 }
 
 body {
